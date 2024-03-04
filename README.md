@@ -55,6 +55,7 @@ CH32V208W принимает BLE-рекламу и отправляет в TCP/I
 | 0x03 | Generate Resolvable Private Address |
 
 | ID | Primary/Secondary PHY |
+|--- |--- |
 | 0x01 | 1M |
 | 0x02 | 2M |
 | 0x03 | Coded |

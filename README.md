@@ -20,16 +20,43 @@ CH32V208W принимает BLE-рекламу и отправляет в TCP/IP сокет.
 Передача принятых фреймов BLE-реклам стартует при соединении с сокетом устройства (порт с номером 1000).
 Фреймы передаются друг за дургом.
 
-|N байта | Информация|
+|N байта | Информация |
 |---|---|
 | 0 | размер структуры данных BLE рекламы |
 | 1 | [0:3] GAP Advertising Report Event Types, [4:7] GAP Address type  |
-| 2 | [0:3] primary PHY, [4:7] secondary PHY |
+| 2 | [0:3] Extended Advertising: Primary PHY, [4:7] Secondary PHY |
 | 3 | RSSI |
 | 4..9 | MAC |
 | 10.. | структура данных BLE рекламы |
 
 Первый байт, с номером 0, равен размеру всего фрейма минус 10.
+
+| ID | GAP Advertising Report Event Types |
+|--- |--- |
+| 0x00 | Connectable undirected advertisement |
+| 0x01 | Connectable directed advertisement |
+| 0x02 | Scannable undirected advertisement |
+| 0x03 | Non-Connectable undirected advertisement |
+| 0x04 | Scan Response |
+| 0x05 | Extend Connectable directed report type |
+| 0x06 | Extend Scannable undirected report type |
+| 0x07 | Extend Non-Connectable and Non-Scannable undirected report type |
+| 0x08 | Extend Connectable undirected report type |
+| 0x09 | Extend Scannable directed report type |
+| 0x0A | Extend Non-Connectable and Non-Scannable directed report type |
+| 0x0B | Eextend Scan Response report type |
+
+| ID | GAP Address type |
+|--- |--- |
+| 0x00 | Public address |
+| 0x01 | Static address |
+| 0x02 | Generate Non-Resolvable Private Address |
+| 0x03 | Generate Resolvable Private Address |
+
+| ID | Primary/Secondary PHY |
+| 0x01 | 1M |
+| 0x02 | 2M |
+| 0x03 | Coded |
 
 ## Демонстрационный adv2eth.py
 
